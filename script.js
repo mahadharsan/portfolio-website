@@ -5,31 +5,15 @@ import { experienceData, projectsData, skillsData, educationData, certifications
 
 // Initialize on DOM load
 document.addEventListener('DOMContentLoaded', () => {
-    try {
-        loadSkills();
-        loadExperience();
-        loadProjects();
-        loadEducation();
-        loadCertifications();
-        setupNavigation();
-        setupFiltering();
-        setupScrollAnimations();
-    } catch (error) {
-        console.error('Error initializing portfolio:', error);
-        showErrorState();
-    }
+    loadSkills();
+    loadExperience();
+    loadProjects();
+    loadEducation();
+    loadCertifications();
+    setupNavigation();
+    setupFiltering();
+    setupScrollAnimations();
 });
-
-// Show error state if content fails to load
-function showErrorState() {
-    const sections = ['skills-grid', 'timeline', 'projects-grid', 'education-grid', 'certifications-grid'];
-    sections.forEach(id => {
-        const element = document.getElementById(id);
-        if (element && element.innerHTML.includes('Loading')) {
-            element.innerHTML = '<div class="loading-state" style="color: var(--accent-error);">Unable to load content. Please refresh the page.</div>';
-        }
-    });
-}
 
 // Load Skills Section
 function loadSkills() {
@@ -81,9 +65,6 @@ function loadSkills() {
 function loadExperience() {
     const timeline = document.getElementById('timeline');
     if (!timeline) return;
-
-    // Clear loading state
-    timeline.innerHTML = '';
 
     experienceData.forEach((exp, index) => {
         const timelineItem = document.createElement('div');
@@ -238,9 +219,6 @@ function loadEducation() {
     const educationGrid = document.getElementById('education-grid');
     if (!educationGrid) return;
 
-    // Clear loading state
-    educationGrid.innerHTML = '';
-
     educationData.forEach(edu => {
         const card = document.createElement('div');
         card.className = 'education-card fade-in';
@@ -276,9 +254,6 @@ function loadEducation() {
 function loadCertifications() {
     const certificationsGrid = document.getElementById('certifications-grid');
     if (!certificationsGrid) return;
-
-    // Clear loading state
-    certificationsGrid.innerHTML = '';
 
     certificationsData.forEach(cert => {
         const card = document.createElement('div');
