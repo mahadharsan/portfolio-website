@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupNavigation();
     setupFiltering();
     setupScrollAnimations();
+    setupContactForm();
 });
 
 // Load Skills Section
@@ -372,5 +373,68 @@ function setupScrollAnimations() {
     // Observe elements that should animate on scroll
     document.querySelectorAll('.skill-category, .timeline-item, .project-card, .education-card, .certification-card').forEach(el => {
         observer.observe(el);
+    });
+}
+
+// Setup Contact Form
+function setupContactForm() {
+    const form = document.getElementById('contact-form');
+    const formMessage = document.getElementById('form-message');
+    
+    if (!form) return;
+
+    // Check if we're on the success page (from query parameter)
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
+        if (formMessage) {
+            formMessage.style.display = 'block';
+            formMessage.style.color = '#10b981';
+            formMessage.textContent = '✓ Thank you! Your message has been sent successfully. I\'ll get back to you soon.';
+            form.style.display = 'none';
+        }
+        return;
+    }
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.textContent;
+        
+        // Disable button and show loading state
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+        
+        try {
+            const response = await fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData).toString()
+            });
+
+            if (response.ok) {
+                // Show success message
+                if (formMessage) {
+                    formMessage.style.display = 'block';
+                    formMessage.style.color = '#10b981';
+                    formMessage.textContent = '✓ Thank you! Your message has been sent successfully. I\'ll get back to you soon.';
+                }
+                form.reset();
+                form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            // Show error message
+            if (formMessage) {
+                formMessage.style.display = 'block';
+                formMessage.style.color = '#ef4444';
+                formMessage.textContent = '✗ Sorry, there was an error sending your message. Please try again or email me directly.';
+            }
+        } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+        }
     });
 }

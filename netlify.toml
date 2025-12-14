@@ -2,11 +2,13 @@
   command = "npm run build"
   publish = "dist"
 
+# Redirect all routes to index.html except static files and success.html
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
   force = false
+  except = ["/success.html", "/*.css", "/*.js", "/*.png", "/*.jpg", "/*.svg", "/*.ico"]
 
 [build.environment]
   NODE_VERSION = "18"

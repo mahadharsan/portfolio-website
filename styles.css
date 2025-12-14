@@ -1074,6 +1074,14 @@ section {
     min-height: 120px;
 }
 
+.form-message {
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+    font-weight: var(--font-weight-medium);
+    text-align: center;
+}
+
 .hidden {
     display: none;
 }

@@ -181,7 +181,7 @@
                         GitHub
                     </a>
                 </div>
-                <form class="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-redirect="/success.html" netlify-honeypot="bot-field" action="/success.html">
+                <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contact-form">
                     <input type="hidden" name="form-name" value="contact">
                     <p class="hidden">
                         <label>Don't fill this out if you're human: <input name="bot-field" /></label>
@@ -195,6 +195,7 @@
                     <div class="form-group">
                         <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
                     </div>
+                    <div id="form-message" class="form-message" style="display: none;"></div>
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
             </div>
