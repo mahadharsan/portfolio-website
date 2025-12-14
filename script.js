@@ -398,7 +398,6 @@ function setupContactForm() {
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        const formData = new FormData(form);
         const submitButton = form.querySelector('button[type="submit"]');
         const originalButtonText = submitButton.textContent;
         
@@ -406,14 +405,33 @@ function setupContactForm() {
         submitButton.disabled = true;
         submitButton.textContent = 'Sending...';
         
+        // Hide any previous messages
+        if (formMessage) {
+            formMessage.style.display = 'none';
+        }
+        
+        // Encode form data for Netlify Forms
+        const formData = new FormData(form);
+        const encoded = new URLSearchParams();
+        
+        // Add all form fields
+        for (const [key, value] of formData.entries()) {
+            encoded.append(key, value);
+        }
+        
         try {
+            // Submit to Netlify Forms endpoint
             const response = await fetch('/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams(formData).toString()
+                body: encoded.toString()
             });
 
-            if (response.ok) {
+            // Netlify Forms returns HTML, so we check if it contains success indicators
+            const text = await response.text();
+            
+            // Check for success (Netlify Forms typically redirects or shows success)
+            if (response.ok || response.redirected || text.includes('Thank you') || text.includes('success')) {
                 // Show success message
                 if (formMessage) {
                     formMessage.style.display = 'block';
@@ -426,11 +444,12 @@ function setupContactForm() {
                 throw new Error('Form submission failed');
             }
         } catch (error) {
+            console.error('Form submission error:', error);
             // Show error message
             if (formMessage) {
                 formMessage.style.display = 'block';
                 formMessage.style.color = '#ef4444';
-                formMessage.textContent = '✗ Sorry, there was an error sending your message. Please try again or email me directly.';
+                formMessage.textContent = '✗ Sorry, there was an error sending your message. Please try again or email me directly at mahadharsanusa@gmail.com';
             }
         } finally {
             submitButton.disabled = false;
