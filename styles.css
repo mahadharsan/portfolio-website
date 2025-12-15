@@ -317,6 +317,7 @@ body {
     color: var(--text-secondary);
     margin-bottom: var(--spacing-xl);
     line-height: 1.7;
+    text-align: justify;
 }
 
 .hero-buttons {
@@ -435,6 +436,7 @@ section {
     color: var(--text-secondary);
     margin-bottom: var(--spacing-lg);
     line-height: 1.8;
+    text-align: justify;
 }
 
 .about-subsection {
@@ -681,6 +683,7 @@ section {
     margin-bottom: var(--spacing-sm);
     color: var(--text-secondary);
     line-height: 1.7;
+    text-align: justify;
 }
 
 .timeline-bullets li::before {
@@ -842,6 +845,7 @@ section {
     color: var(--text-secondary);
     margin-bottom: var(--spacing-md);
     line-height: 1.7;
+    text-align: justify;
 }
 
 .project-metrics {
