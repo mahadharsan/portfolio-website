@@ -119,6 +119,12 @@ body {
     align-items: center;
 }
 
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
 .logo {
     font-size: 1.5rem;
     font-weight: var(--font-weight-bold);
@@ -127,6 +133,35 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     letter-spacing: -0.02em;
+}
+
+.nav-home {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: var(--font-weight-medium);
+    font-size: 0.9375rem;
+    transition: color 0.2s ease;
+    position: relative;
+}
+
+.nav-home:hover {
+    color: var(--accent-primary);
+    font-weight: var(--font-weight-semibold);
+}
+
+.nav-home::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-primary);
+    transition: width 0.3s ease;
+}
+
+.nav-home:hover::after {
+    width: 100%;
 }
 
 .nav-links {
