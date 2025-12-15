@@ -238,14 +238,52 @@ export const blogData = [
 ];
 
 export const publicationsData = [
-  // Add your publications here
-  // Example structure:
-  // {
-  //   title: "Publication Title",
-  //   authors: "Author 1, Author 2, Your Name",
-  //   venue: "Journal/Conference Name",
-  //   year: "2025",
-  //   url: "https://link-to-publication.com",
-  //   citations: 0
-  // }
+  {
+    title: "Resilience strategies to recover from the cascading ripple effect in a copper supply chain through project management",
+    authors: "V KEk, SP Nadeem, M Ravichandran, M Ethirajan, J Kandasamy",
+    venue: "Operations Management Research 15 (1), 440-460",
+    year: "2022",
+    url: "https://link.springer.com/article/10.1007/s12063-021-00231-x",
+    citations: 38
+  },
+  {
+    title: "Environment and economic analysis of reverse supply chain scenarios for remanufacturing using discrete-event simulation approach",
+    authors: "M Ravichandran, KEK Vimal, V Kumar, O Kulkarni, S Govindaswamy",
+    venue: "Environment, Development and Sustainability 26 (4), 10183-10224",
+    year: "2024",
+    url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oUNyeYMAAAAJ&citation_for_view=oUNyeYMAAAAJ:zYLM7Y9cAGgC",
+    citations: 16
+  },
+  {
+    title: "Supply chain routing in a diary industry using heterogeneous fleet system: simulation-based approach",
+    authors: "M Ravichandran, R Naresh, J Kandasamy",
+    venue: "Journal of The Institution of Engineers (India): Series C 101 (5), 891-911",
+    year: "2020",
+    url: "https://link.springer.com/article/10.1007/s40032-020-00588-1",
+    citations: 14
+  },
+  {
+    title: "Application of multi grade fuzzy approach to compute the circularity index of manufacturing organizations",
+    authors: "KEK Vimal, AK Kulatunga, M Ravichandran, J Kandasamy",
+    venue: "Procedia CIRP 98, 476-481",
+    year: "2021",
+    url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oUNyeYMAAAAJ&citation_for_view=oUNyeYMAAAAJ:d1gkVwhDpl0C",
+    citations: 13
+  },
+  {
+    title: "Application of dmaic to reduce the rejection rate of starter motor shaft assembly in the automobile industry: a case study",
+    authors: "G Sundaramali, RK Santhosh, S Anirudh, R Mahadharsan, SK Selvaraj",
+    venue: "International Journal of Industrial Engineering and Production Research 32, 1-18",
+    year: "2021",
+    url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oUNyeYMAAAAJ&citation_for_view=oUNyeYMAAAAJ:Tyk-4Ss8FVUC",
+    citations: 8
+  },
+  {
+    title: "A QFD Approach for Selection of Design for Logistics Strategies",
+    authors: "M Ravichandran, KEK Vimal, K Jayakrishna, AK Kulatunga",
+    venue: "Design for Tomorrow—Volume 2: Proceedings of ICoRD 2021, 141-149",
+    year: "2021",
+    url: "https://link.springer.com/chapter/10.1007/978-981-16-0119-4_12",
+    citations: 3
+  }
 ];
