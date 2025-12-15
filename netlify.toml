@@ -12,3 +12,9 @@
 
 [build.environment]
   NODE_VERSION = "18"
+
+[[headers]]
+  for = "/*.pdf"
+  [headers.values]
+    Content-Type = "application/pdf"
+    Content-Disposition = "attachment"
