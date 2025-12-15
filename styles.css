@@ -690,15 +690,15 @@ section {
 }
 
 .timeline-tag[data-category="Leadership"] {
-    background-color: var(--accent-primary);
+    background-color: var(--text-tertiary);
 }
 
 .timeline-tag[data-category="Mentorship"] {
-    background-color: var(--accent-primary);
+    background-color: var(--text-tertiary);
 }
 
 .timeline-tag[data-category="Career Development"] {
-    background-color: var(--accent-primary);
+    background-color: var(--text-tertiary);
 }
 
 .timeline-bullets {
