@@ -437,6 +437,32 @@ section {
     line-height: 1.8;
 }
 
+.about-subsection {
+    margin-bottom: var(--spacing-2xl);
+}
+
+.about-subsection:last-child {
+    margin-bottom: 0;
+}
+
+.about-subsection-title {
+    font-size: 1.25rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--accent-primary);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.about-subsection-title::before {
+    content: '';
+    width: 4px;
+    height: 1.5rem;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-sm);
+}
+
 /* Skills Section */
 .skills-grid {
     display: grid;
@@ -931,15 +957,15 @@ section {
 /* Certifications Section */
 .certifications-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-lg);
-    max-width: 800px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    max-width: 600px;
     margin: 0 auto;
 }
 
 .certification-card {
     background: var(--bg-card);
-    padding: var(--spacing-lg);
+    padding: var(--spacing-md);
     border-radius: var(--radius-md);
     border: 1px solid var(--border-color);
     box-shadow: var(--shadow-sm);
@@ -954,20 +980,20 @@ section {
 }
 
 .certification-name {
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
     margin-bottom: var(--spacing-xs);
 }
 
 .certification-issuer {
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
     color: var(--text-secondary);
     margin-bottom: var(--spacing-xs);
 }
 
 .certification-year {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     color: var(--text-tertiary);
 }
 

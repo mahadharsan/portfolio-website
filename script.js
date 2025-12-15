@@ -5,10 +5,10 @@ import { experienceData, projectsData, skillsData, educationData, certifications
 
 // Initialize on DOM load
 document.addEventListener('DOMContentLoaded', () => {
-    loadSkills();
     loadExperience();
-    loadProjects();
     loadEducation();
+    loadProjects();
+    loadSkills();
     loadCertifications();
     setupNavigation();
     setupFiltering();
