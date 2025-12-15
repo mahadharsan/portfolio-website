@@ -5,6 +5,7 @@ import { experienceData, projectsData, skillsData, educationData, certifications
 
 // Initialize on DOM load
 document.addEventListener('DOMContentLoaded', () => {
+    setupTypingAnimation();
     loadExperience();
     loadEducation();
     loadProjects();
@@ -15,6 +16,32 @@ document.addEventListener('DOMContentLoaded', () => {
     setupScrollAnimations();
     setupContactForm();
 });
+
+// Setup Typing Animation for Name
+function setupTypingAnimation() {
+    const typingElement = document.getElementById('typing-name');
+    if (!typingElement) return;
+
+    const fullName = 'Mahadharsan Ravichandran';
+    let currentIndex = 0;
+    
+    // Add cursor class initially
+    typingElement.classList.add('typing-cursor');
+    
+    // Start typing after a brief delay
+    setTimeout(() => {
+        const typingInterval = setInterval(() => {
+            if (currentIndex < fullName.length) {
+                typingElement.textContent = fullName.substring(0, currentIndex + 1);
+                currentIndex++;
+            } else {
+                // Remove cursor when typing is complete
+                typingElement.classList.remove('typing-cursor');
+                clearInterval(typingInterval);
+            }
+        }, 70); // 70ms per character for smooth typing
+    }, 300); // 300ms initial delay
+}
 
 // Load Skills Section
 function loadSkills() {
