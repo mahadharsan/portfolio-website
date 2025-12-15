@@ -1,0 +1,46 @@
+name: Update Google Scholar Citations
+
+on:
+  schedule:
+    # Run every Monday at 00:00 UTC
+    - cron: '0 0 * * 1'
+  workflow_dispatch: # Allows manual triggering from GitHub Actions UI
+
+jobs:
+  update-citations:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Update citations
+        id: update
+        run: npm run update-citations
+        continue-on-error: true
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          git diff --exit-code data.js || echo "has_changes=true" >> $GITHUB_OUTPUT
+        continue-on-error: true
+
+      - name: Commit and push changes
+        if: steps.git-check.outputs.has_changes == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add data.js
+          git commit -m "Auto-update: Google Scholar citations [skip ci]"
+          git push
